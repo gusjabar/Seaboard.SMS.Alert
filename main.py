@@ -1,6 +1,7 @@
 import os
 import sys
 
+import smsbyemail
 from sms import *
 
 
@@ -23,9 +24,10 @@ def menu():
     print(30 * '=')
     print("1-Send SMS")
     print("2-List resources")
+    print("3-Send by email")
     print("0-Exit")
     while True:
-        menuItem = int(input("choose an option[0-2] :"))
+        menuItem = int(input("choose an option[0-3] :"))
         print("you choose:", menuItem)
 
         if menuItem == 0:
@@ -41,6 +43,11 @@ def menu():
             print("List of resources")
             print(30 * '-')
             listingResources()
+        elif menuItem == 3:
+            print("Sending a SMS by email...")
+            print(30 * '-')
+            msg = input("Write a message to send: ")
+            smsbyemail.send_sms(msg)
 
 
 def cls():
