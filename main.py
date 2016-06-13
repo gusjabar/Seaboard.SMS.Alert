@@ -5,12 +5,17 @@ from sms import *
 
 
 def main(argv):
-    if len(argv) > 1:
-        # argv[1] has your filename
-        filename = argv[1]
-        send(filename)
-    else:
-        menu()
+    try:
+        if len(argv) > 1:
+            # argv[1] has your filename
+            filename = argv[1]
+            send(filename)
+        else:
+            menu()
+    except Exception as e:
+        file = open("logerr.txt", "w")
+        file.write("Error has been ocurred: " + str(e))
+        file.close()
 
 
 def menu():
